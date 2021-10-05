@@ -1,4 +1,4 @@
-const acumulador = Object.freeze(0);
+const accumulator = Object.freeze(0);
 let option = prompt("¿Qué deseas hacer?",
     "1. Sumar",
     "2. Restar",
@@ -33,5 +33,16 @@ const multiplyNegative = (number1, number2, acumulador) => {
 
 }
 
-console.log(multiplyPositive(-2, 5, acumulador));
-console.log(multiplyNegative(-2, -5, acumulador));
+const divide = (number1, number2, quotient) => {
+    if(number2 == 0){
+        return "No se puede dividir entre 0.";
+    }
+    if(number1 < 1){
+        return quotient;
+    }
+    quotient++;
+    return divide(number1 = subtract(number1, number2), number2, quotient);
+
+} 
+
+console.log(divide(12,0,accumulator));

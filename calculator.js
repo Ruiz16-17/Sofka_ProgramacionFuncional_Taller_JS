@@ -9,11 +9,18 @@ const subtract = (number1, number2) => {
 }
 
 const multiply = (number1, number2) =>{
-    return Array(number2).fill(number1).reduce((acumulator, number) =>  acumulator + number,0 );
+    return Array(number2).fill(number1).reduce((acumulator, number) =>  acumulator + number);
 }
 
 const divide = (number1, number2) => {
-    multiply()
+    
+    return [...Array(number1 +1 ).keys()].reduce((acumulator, num) => {
+        if(multiply(number2,num) <= number1){
+            return acumulator+=1;
+        }
+
+        return acumulator;
+    });
 };
 
 let option = prompt("¿Qué deseas hacer?\n"+
@@ -43,7 +50,7 @@ let option = prompt("¿Qué deseas hacer?\n"+
         case "4":
             number1 = parseInt(prompt("Ingrese el numero 1."));
             number2 = parseInt(prompt("Ingrese el numero 2."));
-            alert("Resultado de la división de " + number1 + " / " + number2 + " es igual a: " + divide(number1,number2, accumulator));
+            alert("Resultado de la división de " + number1 + " / " + number2 + " es igual a: " + divide(number1,number2));
             break;
 
         case "5":

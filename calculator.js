@@ -1,6 +1,4 @@
-const accumulator = Object.freeze(0);
 let number1, number2;
-
 
 const add = (number1, number2) => {
     return number1 + number2;
@@ -10,48 +8,13 @@ const subtract = (number1, number2) => {
     return number1 - number2;
 }
 
-const multiplyPositive = (number1, number2, acumulador) => {
-
-        if (number2 < 1) {
-            return acumulador;
-            
-        }
-        return multiplyPositive(number1, number2 - 1, acumulador = add(acumulador, number1));
-    
+const multiply = (number1, number2) =>{
+    return Array(number2).fill(number1).reduce((acumulator, number) =>  acumulator + number,0 );
 }
 
-const multiplyNegative = (number1, number2, acumulador) => {
-
-    if (number2 > -1) {
-        return Math.abs(acumulador);   
-    }
-    return multiplyNegative(number1, number2 + 1, acumulador = add(acumulador, number1));
-
-}
-
-const divide = (number1, number2, quotient) => {
-    if(number2 == 0){
-        return "No se puede dividir entre 0.";
-    }
-    if(number1 < 1){
-        return quotient;
-    }
-    quotient++;
-    return divide(number1 = subtract(number1, number2), number2, quotient);
-
-} 
-
-const verifyMultiplication = (number1, number2) =>{
-    if(number2 < 0){
-        alert("Resultado de la multiplicación de " + number1 + " x " + number2 + " es igual a: " + multiplyNegative(number1,number2,accumulator));
-    }
-    if(number2 > 0){
-        alert("Resultado de la multiplicación de " + number1 + " x " + number2 + " es igual a: " + multiplyPositive(number1,number2,accumulator));
-    }
-    if(number2 == 0 && number1 == 0){
-        alert("Resultado: 0");
-    }
-}
+const divide = (number1, number2) => {
+    multiply()
+};
 
 let option = prompt("¿Qué deseas hacer?\n"+
     "1. Sumar\n"+
@@ -74,7 +37,7 @@ let option = prompt("¿Qué deseas hacer?\n"+
         case "3":
             number1 = parseInt(prompt("Ingrese el numero 1."));
             number2 = parseInt(prompt("Ingrese el numero 2."));
-            verifyMultiplication(number1, number2);
+            alert("El resultado de multiplicar " + number1 + " * " +number2+ " es igual a: " +multiply(number1, number2));
             break;
             
         case "4":
